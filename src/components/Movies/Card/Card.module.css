@@ -1,0 +1,78 @@
+.card {
+    width: 300px;
+    height: 450px;
+    box-shadow: var(--cardShadow);
+    border-radius: 10px;
+    margin: 15px;
+
+}
+
+.card__header {
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--customDarkViolet);
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__title {
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+}
+
+.card__delete {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+.card__delete svg path {
+    fill: #fff;
+}
+
+.card__delete svg path:hover {
+    fill: var(--customRed);
+}
+
+.card__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+
+
+}
+
+.card__footer {
+    padding: 0 15px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__gauge {
+    position: relative;
+    top: 30%;
+}
+
+.card__stats {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.card__likes,
+.card__dislikes {
+    display: flex;
+    align-items: center;
+}
+
+.card__likes img,
+.card__dislikes img {
+    margin-right: 10px;
+}
