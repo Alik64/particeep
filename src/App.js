@@ -1,13 +1,10 @@
-import logo from "./assets/images/logo.svg";
-import { ReactComponent as Like } from "./assets/images/like.svg";
-import { ReactComponent as Dislike } from "./assets/images/dislike.svg";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <>
-      <Like style={{ width: "100px" }} />
-      <Dislike style={{ width: "100px" }} />
-    </>
+    <div className="appWrapper">
+      <Header />
+    </div>
   );
 }
 

@@ -1,0 +1,21 @@
+.root {
+    background-color: var(--customRed);
+}
+
+.wrapper {
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 22px 20px;
+}
+
+.logo {
+    width: 160px;
+    height: 32px;
+}
+
+.contributor {
+    color: #fff;
+}
