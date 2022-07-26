@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card/Card";
 import { movies$ } from "../../data/movies";
-
+import style from "./Movies.module.css";
 const Movies = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,8 +14,16 @@ const Movies = () => {
   }, []);
   console.log("movies : ", movies);
   return (
-    <div>
-      <Card data={movies} />
+    <div className={style.moviesList}>
+      {movies?.map((movie) => (
+        <Card
+          key={movie.id}
+          title={movie.title}
+          category={movie.category}
+          likes={movie.likes}
+          dislikes={movie.dislikes}
+        />
+      ))}
     </div>
   );
 };
