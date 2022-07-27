@@ -24,32 +24,31 @@ const moviesSlice = createSlice({
   initialState,
   reducers: {
     likeMovie: (state, action) => {
-      state.data.map((movie) =>
-        movie.id === action.payload ? movie.likes++ : null
+      const indextoFind = state.data.findIndex(
+        (item) => item.id === action.payload
       );
-      return state;
+      state.data[indextoFind].likes += 1;
     },
     unlikeMovie: (state, action) => {
-      state.data.map((movie) =>
-        movie.id === action.payload ? movie.likes-- : null
+      const indextoFind = state.data.findIndex(
+        (item) => item.id === action.payload
       );
-      return state;
+      state.data[indextoFind].likes -= 1;
     },
     dislikeMovie: (state, action) => {
-      state.data.map((movie) =>
-        movie.id === action.payload ? movie.dislikes++ : null
+      const indextoFind = state.data.findIndex(
+        (item) => item.id === action.payload
       );
-      return state;
+      state.data[indextoFind].dislikes += 1;
     },
     undislikeMovie: (state, action) => {
-      state.data.map((movie) =>
-        movie.id === action.payload ? movie.dislikes-- : null
+      const indextoFind = state.data.findIndex(
+        (item) => item.id === action.payload
       );
-      return state;
+      state.data[indextoFind].dislikes -= 1;
     },
     deleteMovie: (state, action) => {
       state.data = state.data.filter((movie) => movie.id !== action.payload);
-      return state;
     },
   },
   extraReducers: {
