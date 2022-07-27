@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { fetchMoviesThunk } from "../../redux/moviesSlice";
 
-import ButtonGroup from "../UI/ButtonGroup/ButtonGroup";
-import MySelect from "../UI/MySelect/MySelect";
-import Pagination from "../UI/Pagination/Pagination";
+import ButtonGroup from "../UI/ButtonGroup";
+import MySelect from "../UI/MySelect";
+import Pagination from "../UI/Pagination";
 import Card from "./Card";
 
 import preloader from "../../assets/images/preloader.gif";
@@ -15,7 +15,7 @@ import style from "./Movies.module.css";
 const Movies = () => {
   const movies = useSelector((state) => state.movies.data);
   const isLoading = useSelector((state) => state.movies.isLoading);
-  console.log("isLoading : ", isLoading);
+
   const [selectSort, setSelectSort] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
@@ -74,10 +74,10 @@ const Movies = () => {
       <section className={style.movies_filter}>
         <MySelect
           onChange={sortMovies}
-          defaultValue="Catégories"
           value={selectSort}
           options={moviesCategories()}
         />
+
         <div className={style.movies_display}>
           <ButtonGroup
             btn1={4}
@@ -87,6 +87,7 @@ const Movies = () => {
           />
         </div>
       </section>
+
       <section className={style.movies_list}>
         {isLoading ? (
           <div>

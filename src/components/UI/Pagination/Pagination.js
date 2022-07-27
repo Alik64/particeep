@@ -54,7 +54,7 @@ const Pagination = ({
           </div>
         );
       })}
-      {/*  Right Navigation arrow */}
+
       <div
         className={cn(style.next, {
           [style.disabled]: currentPage === lastPage,

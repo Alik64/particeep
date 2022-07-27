@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import style from "./MySelect.module.css";
 
-export default function MySelect({ options, defaultValue, value, onChange }) {
+export default function MySelect({ options, value, onChange }) {
   const handleChange = (e) => {
     onChange && onChange(e.target.value);
   };
