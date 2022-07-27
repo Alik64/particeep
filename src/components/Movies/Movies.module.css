@@ -1,3 +1,17 @@
+.movies_filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 660px) {
+    .movies_filter {
+        flex-direction: column;
+    }
+}
+
 .movies_list {
     display: flex;
     flex-wrap: wrap;

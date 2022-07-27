@@ -1,0 +1,40 @@
+.root {
+    box-shadow: var(--cardShadow);
+
+}
+
+
+.container {
+    background-color: var(--customDarkViolet);
+    width: 300px;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    height: 35px;
+
+}
+
+.buttons>* {
+    width: 50px;
+    height: 30px;
+    margin: 0 5px;
+    color: var(--customDarkViolet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.buttons>*:hover {
+    color: #000;
+    transform: scale(1.3);
+}

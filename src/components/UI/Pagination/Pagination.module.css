@@ -6,25 +6,19 @@
 
 }
 
-
-
 .pageNumber {
-    box-shadow: var(--cardShadow);
     width: 50px;
     height: 30px;
     margin: 0 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: 0;
+    box-shadow: var(--cardShadow);
 }
-
-
 
 .pageNumber.selected {
     color: #fff;
     background-color: var(--customDarkViolet);
-
 }
 
 .prev.disabled,

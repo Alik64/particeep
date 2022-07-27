@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { movies$ } from "../../data/movies";
+
+import ButtonGroup from "../UI/ButtonGroup/ButtonGroup";
 import MySelect from "../UI/MySelect/MySelect";
 import Pagination from "../UI/Pagination/Pagination";
-
 import Card from "./Card";
 
 import style from "./Movies.module.css";
@@ -54,7 +55,7 @@ const Movies = () => {
     const firstPageIndex = (currentPage - 1) * pageSize;
     const lastPageIndex = firstPageIndex + pageSize;
     return sortedMovies.slice(firstPageIndex, lastPageIndex);
-  }, [selectSort, currentPage, movies]);
+  }, [selectSort, currentPage, movies, pageSize]);
 
   const sortMovies = (sort) => {
     setSelectSort(sort);
@@ -62,7 +63,7 @@ const Movies = () => {
 
   return (
     <div className={style.root}>
-      <div className={style.movies_filter}>
+      <section className={style.movies_filter}>
         <MySelect
           onChange={sortMovies}
           defaultValue="Catégories"
@@ -70,13 +71,15 @@ const Movies = () => {
           options={moviesCategories()}
         />
         <div className={style.movies_display}>
-          <div>4</div>
-          <div>8</div>
-          <div>12</div>
+          <ButtonGroup
+            btn1={4}
+            btn2={8}
+            btn3={12}
+            onClick={(val) => setPageSize(val)}
+          />
         </div>
-      </div>
-
-      <div className={style.movies_list}>
+      </section>
+      <section className={style.movies_list}>
         {currentMoviesData?.map((movie) => (
           <Card
             key={movie.id}
@@ -86,16 +89,16 @@ const Movies = () => {
             dislikes={movie.dislikes}
           />
         ))}
-      </div>
+      </section>
 
-      <div className={style.movies_pagination}>
+      <section className={style.movies_pagination}>
         <Pagination
           currentPage={currentPage}
           totalCount={totalCount}
           pageSize={pageSize}
           onPageChange={(page) => setCurrentPage(page)}
         />
-      </div>
+      </section>
     </div>
   );
 };
