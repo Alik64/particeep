@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  position: relative;
+  top: 40px;
+  background-color: var(--customDarkViolet);
+  width: 300px;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+}
+
+select {
+  margin: 40px;
+  width: 300px;
+  appearance: none;
+  font-size: 16px;
+  border: 1px solid #eee;
+  height: 35px;
+  text-align: center;
+  outline: none;
+}
+
+option {
+  cursor: pointer;
+  margin-bottom: 5px;
+  text-align: center;
+}
