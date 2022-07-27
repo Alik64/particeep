@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { movies$ } from "../../data/movies";
+
 import { fetchMoviesThunk } from "../../redux/moviesSlice";
 
 import ButtonGroup from "../UI/ButtonGroup/ButtonGroup";
@@ -8,10 +8,14 @@ import MySelect from "../UI/MySelect/MySelect";
 import Pagination from "../UI/Pagination/Pagination";
 import Card from "./Card";
 
+import preloader from "../../assets/images/preloader.gif";
+
 import style from "./Movies.module.css";
 
 const Movies = () => {
   const movies = useSelector((state) => state.movies.data);
+  const isLoading = useSelector((state) => state.movies.isLoading);
+  console.log("isLoading : ", isLoading);
   const [selectSort, setSelectSort] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
@@ -84,16 +88,22 @@ const Movies = () => {
         </div>
       </section>
       <section className={style.movies_list}>
-        {currentMoviesData?.map((movie) => (
-          <Card
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            category={movie.category}
-            likes={movie.likes}
-            dislikes={movie.dislikes}
-          />
-        ))}
+        {isLoading ? (
+          <div>
+            <img src={preloader} alt="Youtube Logo" />
+          </div>
+        ) : (
+          currentMoviesData?.map((movie) => (
+            <Card
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              category={movie.category}
+              likes={movie.likes}
+              dislikes={movie.dislikes}
+            />
+          ))
+        )}
       </section>
 
       <section className={style.movies_pagination}>

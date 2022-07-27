@@ -22,7 +22,6 @@ const Pagination = ({
     pageSize,
   });
 
-  console.log("currentPage : ", currentPage);
   const onNext = () => {
     onPageChange(currentPage + 1);
   };
