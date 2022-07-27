@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card/Card";
+import Card from "./Card";
 import { movies$ } from "../../data/movies";
 import style from "./Movies.module.css";
 const Movies = () => {

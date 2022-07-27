@@ -5,7 +5,7 @@ import Like from "./assets/images/likeEmpty.png";
 import Liked from "./assets/images/likeFilled.png";
 import Dislike from "./assets/images/dislikeEmpty.png";
 import Disliked from "./assets/images/dislikeFilled.png";
-import Barre from "./Barre/Barre";
+import Barre from "./Barre";
 
 const Card = ({ title, category, likes, dislikes }) => {
   return (
