@@ -4,7 +4,6 @@
     box-shadow: var(--cardShadow);
     border-radius: 10px;
     margin: 15px;
-
 }
 
 .card__header {
@@ -42,8 +41,6 @@
     align-items: center;
     justify-content: center;
     height: 40%;
-
-
 }
 
 .card__footer {
@@ -63,13 +60,15 @@
     width: 250px;
     display: flex;
     justify-content: space-between;
-
 }
 
 .card__likes,
 .card__dislikes {
+    z-index: 1;
     display: flex;
     align-items: center;
+
+    cursor: pointer;
 }
 
 .card__likes img,

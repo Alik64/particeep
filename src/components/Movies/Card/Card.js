@@ -1,22 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  likeMovie,
+  unlikeMovie,
+  dislikeMovie,
+  undislikeMovie,
+  deleteMovie,
+} from "../../../redux/moviesSlice";
 
 import { ReactComponent as Delete } from "./assets/images/delete.svg";
 import Barre from "./Barre";
-
-import Like from "./assets/images/likeEmpty.png";
+import Unliked from "./assets/images/likeEmpty.png";
 import Liked from "./assets/images/likeFilled.png";
-import Dislike from "./assets/images/dislikeEmpty.png";
+import Undisliked from "./assets/images/dislikeEmpty.png";
 import Disliked from "./assets/images/dislikeFilled.png";
 
 import style from "./Card.module.css";
 
-const Card = ({ title, category, likes, dislikes }) => {
+const Card = ({ id, title, category, likes, dislikes }) => {
+  const [liked, setLiked] = useState(false);
+  const [disliked, setDisliked] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handleLikeClick = (id) => {
+    if (!liked) {
+      if (disliked) {
+        dispatch(undislikeMovie(id));
+        setDisliked(false);
+      }
+      dispatch(likeMovie(id));
+      setLiked(true);
+    } else {
+      dispatch(unlikeMovie(id));
+      setLiked(false);
+    }
+  };
+  const handleDislikeClick = (id) => {
+    if (!disliked) {
+      if (liked) {
+        dispatch(unlikeMovie(id));
+        setLiked(false);
+      }
+      dispatch(dislikeMovie(id));
+      setDisliked(true);
+    } else {
+      dispatch(undislikeMovie(id));
+      setDisliked(false);
+    }
+  };
+  const handleDelete = (id) => {
+    console.log("helllo");
+    dispatch(deleteMovie(id));
+  };
   return (
     <div className={style.card}>
       <div className={style.card__header}>
         <h1 className={style.card__title}>{title}</h1>
-        <div className={style.card__delete}>
+        <div className={style.card__delete} onClick={() => handleDelete(id)}>
           <Delete />
         </div>
       </div>
@@ -29,12 +72,37 @@ const Card = ({ title, category, likes, dislikes }) => {
           <Barre likes={likes} dislikes={dislikes} />
         </div>
         <div className={style.card__stats}>
-          <div className={style.card__likes}>
-            <img src={Like} alt="Thumb up" width={30} height={30} />
+          <div
+            className={style.card__likes}
+            onClick={() => handleLikeClick(id)}
+          >
+            {liked ? (
+              <img src={Liked} alt="Thumb up filled" width={30} height={30} />
+            ) : (
+              <img src={Unliked} alt="Thumb up" width={30} height={30} />
+            )}
             <h3>{likes}</h3>
           </div>
-          <div className={style.card__dislikes}>
-            <img src={Dislike} alt="Thumb down" width={30} height={30} />
+          <div
+            className={style.card__dislikes}
+            onClick={() => handleDislikeClick(id)}
+          >
+            {disliked ? (
+              <img
+                src={Disliked}
+                alt="Thumb up filled"
+                width={30}
+                height={30}
+              />
+            ) : (
+              <img
+                src={Undisliked}
+                alt="Thumb up filled"
+                width={30}
+                height={30}
+              />
+            )}
+
             <h3>{dislikes}</h3>
           </div>
         </div>
@@ -49,6 +117,7 @@ Card.defaultProps = {
 };
 
 Card.propTypes = {
+  id: PropTypes.string,
   title: PropTypes.string,
   category: PropTypes.string,
   likes: PropTypes.number,

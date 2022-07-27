@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { movies$ } from "../../data/movies";
+import { fetchMoviesThunk } from "../../redux/moviesSlice";
 
 import ButtonGroup from "../UI/ButtonGroup/ButtonGroup";
 import MySelect from "../UI/MySelect/MySelect";
@@ -9,22 +11,21 @@ import Card from "./Card";
 import style from "./Movies.module.css";
 
 const Movies = () => {
-  const [movies, setMovies] = useState([]);
+  const movies = useSelector((state) => state.movies.data);
   const [selectSort, setSelectSort] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
-  const [totalCount, setTotalCount] = useState(movies.length);
+  const [totalCount, setTotalCount] = useState(movies?.length);
 
-  console.log("totalCount : ", totalCount);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      let result = await movies$;
-      setMovies(result);
-      setTotalCount(result.length);
-    };
-    fetchData();
+    dispatch(fetchMoviesThunk());
   }, []);
+
+  useEffect(() => {
+    setTotalCount(movies?.length);
+  }, [movies]);
 
   const moviesCategories = () => {
     const categories = movies?.map((movies) => movies.category);
@@ -54,13 +55,16 @@ const Movies = () => {
   const currentMoviesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * pageSize;
     const lastPageIndex = firstPageIndex + pageSize;
-    return sortedMovies.slice(firstPageIndex, lastPageIndex);
+    return sortedMovies?.slice(firstPageIndex, lastPageIndex);
   }, [selectSort, currentPage, movies, pageSize]);
 
   const sortMovies = (sort) => {
     setSelectSort(sort);
   };
-
+  const handleButtonGroupClick = (val) => {
+    setPageSize(val);
+    setCurrentPage(1);
+  };
   return (
     <div className={style.root}>
       <section className={style.movies_filter}>
@@ -75,7 +79,7 @@ const Movies = () => {
             btn1={4}
             btn2={8}
             btn3={12}
-            onClick={(val) => setPageSize(val)}
+            onClick={(val) => handleButtonGroupClick(val)}
           />
         </div>
       </section>
@@ -83,6 +87,7 @@ const Movies = () => {
         {currentMoviesData?.map((movie) => (
           <Card
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             category={movie.category}
             likes={movie.likes}
