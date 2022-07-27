@@ -1,0 +1,39 @@
+.root {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+
+
+.pageNumber {
+    box-shadow: var(--cardShadow);
+    width: 50px;
+    height: 30px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+}
+
+
+
+.pageNumber.selected {
+    color: #fff;
+    background-color: var(--customDarkViolet);
+
+}
+
+.prev.disabled,
+.next.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+svg {
+    width: 30px;
+    height: 30px;
+}

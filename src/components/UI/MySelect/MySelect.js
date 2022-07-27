@@ -12,11 +12,8 @@ export default function MySelect({ options, defaultValue, value, onChange }) {
 
   return (
     <div className={style.root}>
-      <label for="mySelect">Catégories</label>
+      <label htmlFor="mySelect">Catégories</label>
       <select value={value} onChange={handleChange} id="mySelect">
-        <option disabled value="">
-          {defaultValue}
-        </option>
         <option value="all">All</option>
         {options.map((option) => (
           <option key={uuidv4()} value={option}>
