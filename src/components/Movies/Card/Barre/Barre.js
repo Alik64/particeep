@@ -7,6 +7,10 @@ export default function Barre({ likes, dislikes }) {
   const [pourcentage, setPourcentage] = useState(total);
 
   useEffect(() => {
+    if (total === 0) {
+      setPourcentage(50);
+      return;
+    }
     const width = (likes * 100) / total;
     setPourcentage(width);
   }, [dislikes, likes]);
