@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+
 import style from "./Barre.module.css";
 
 export default function Barre({ likes, dislikes }) {
@@ -31,3 +33,13 @@ export default function Barre({ likes, dislikes }) {
     </div>
   );
 }
+
+Barre.defaultProps = {
+  likes: 0,
+  dislikes: 0,
+};
+
+Barre.propTypes = {
+  likes: PropTypes.number,
+  dislikes: PropTypes.number,
+};

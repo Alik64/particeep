@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
 import { movies$ } from "../../data/movies";
+
+import Card from "./Card";
+
 import style from "./Movies.module.css";
+
 const Movies = () => {
   const [movies, setMovies] = useState(null);
 

@@ -1,11 +1,15 @@
 import React from "react";
-import style from "./Card.module.css";
+import PropTypes from "prop-types";
+
 import { ReactComponent as Delete } from "./assets/images/delete.svg";
+import Barre from "./Barre";
+
 import Like from "./assets/images/likeEmpty.png";
 import Liked from "./assets/images/likeFilled.png";
 import Dislike from "./assets/images/dislikeEmpty.png";
 import Disliked from "./assets/images/dislikeFilled.png";
-import Barre from "./Barre";
+
+import style from "./Card.module.css";
 
 const Card = ({ title, category, likes, dislikes }) => {
   return (
@@ -37,6 +41,18 @@ const Card = ({ title, category, likes, dislikes }) => {
       </div>
     </div>
   );
+};
+
+Card.defaultProps = {
+  likes: 0,
+  dislikes: 0,
+};
+
+Card.propTypes = {
+  title: PropTypes.string,
+  category: PropTypes.string,
+  likes: PropTypes.number,
+  dislikes: PropTypes.number,
 };
 
 export default Card;
