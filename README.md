@@ -36,6 +36,7 @@ Version utilisateur est deployé sur Netlify [Particeep](https://react-test-part
 
 - React
 - Redux Toolkit
+- React Testing Library
 - CSS modules
 
 NPM Packages :
@@ -43,5 +44,6 @@ NPM Packages :
 - uuid
 - prop-types
 - classnames
+- @types/jest
 
 P.S : Il y a deux Pulp Fiction 🤷🏻‍♂️

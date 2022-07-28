@@ -56,35 +56,46 @@ const Card = ({ id, title, category, likes, dislikes }) => {
     dispatch(deleteMovie(id));
   };
   return (
-    <div className={style.card}>
-      <div className={style.card__header}>
-        <h1 className={style.card__title}>{title}</h1>
-        <div className={style.card__delete} onClick={() => handleDelete(id)}>
+    <div className={style.card} data-testid="card">
+      <div className={style.card_header}>
+        <h1 className={style.card_title} data-testid="card_title">
+          {title}
+        </h1>
+        <div className={style.card_delete} onClick={() => handleDelete(id)}>
           <Delete />
         </div>
       </div>
-      <div className={style.card__body}>
-        <h2>{category}</h2>
+      <div className={style.card_body}>
+        <h2 data-testid="card_category">{category}</h2>
       </div>
 
-      <div className={style.card__footer}>
-        <div className={style.card__gauge}>
+      <div className={style.card_footer}>
+        <div className={style.card_gauge} data-testid="card_gauge">
           <Barre likes={likes} dislikes={dislikes} />
         </div>
-        <div className={style.card__stats}>
-          <div
-            className={style.card__likes}
-            onClick={() => handleLikeClick(id)}
-          >
+        <div className={style.card_stats} data-testid="card_stats">
+          <div className={style.card_likes} onClick={() => handleLikeClick(id)}>
             {liked ? (
-              <img src={Liked} alt="Thumb up filled" width={30} height={30} />
+              <img
+                src={Liked}
+                alt="Thumb up filled"
+                width={30}
+                height={30}
+                data-testid="card_liked"
+              />
             ) : (
-              <img src={Unliked} alt="Thumb up" width={30} height={30} />
+              <img
+                src={Unliked}
+                alt="Thumb up"
+                width={30}
+                height={30}
+                data-testid="card_unliked"
+              />
             )}
             <h3>{likes}</h3>
           </div>
           <div
-            className={style.card__dislikes}
+            className={style.card_dislikes}
             onClick={() => handleDislikeClick(id)}
           >
             {disliked ? (
@@ -93,6 +104,7 @@ const Card = ({ id, title, category, likes, dislikes }) => {
                 alt="Thumb up filled"
                 width={30}
                 height={30}
+                data-testid="card_disliked"
               />
             ) : (
               <img
@@ -100,6 +112,7 @@ const Card = ({ id, title, category, likes, dislikes }) => {
                 alt="Thumb up filled"
                 width={30}
                 height={30}
+                data-testid="card_undisliked"
               />
             )}
 

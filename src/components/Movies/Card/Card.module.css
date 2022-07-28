@@ -6,7 +6,7 @@
     margin: 15px;
 }
 
-.card__header {
+.card_header {
     position: relative;
     border-radius: 10px 10px 0 0;
     background-color: var(--customDarkViolet);
@@ -16,34 +16,34 @@
     justify-content: center;
 }
 
-.card__title {
+.card_title {
     color: #fff;
     text-align: center;
     font-size: 24px;
 }
 
-.card__delete {
+.card_delete {
     position: absolute;
     top: 13px;
     right: 13px;
 }
 
-.card__delete svg path {
+.card_delete svg path {
     fill: #fff;
 }
 
-.card__delete svg path:hover {
+.card_delete svg path:hover {
     fill: var(--customRed);
 }
 
-.card__body {
+.card_body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40%;
 }
 
-.card__footer {
+.card_footer {
     padding: 0 15px;
     height: 30%;
     display: flex;
@@ -51,19 +51,19 @@
     align-items: center;
 }
 
-.card__gauge {
+.card_gauge {
     position: relative;
     top: 30%;
 }
 
-.card__stats {
+.card_stats {
     width: 250px;
     display: flex;
     justify-content: space-between;
 }
 
-.card__likes,
-.card__dislikes {
+.card_likes,
+.card_dislikes {
     z-index: 1;
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@
     cursor: pointer;
 }
 
-.card__likes img,
-.card__dislikes img {
+.card_likes img,
+.card_dislikes img {
     margin-right: 10px;
 }

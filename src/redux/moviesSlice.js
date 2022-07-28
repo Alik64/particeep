@@ -24,10 +24,10 @@ const moviesSlice = createSlice({
   initialState,
   reducers: {
     likeMovie: (state, action) => {
-      const indextoFind = state.data.findIndex(
+      const indexToFind = state.data.findIndex(
         (item) => item.id === action.payload
       );
-      state.data[indextoFind].likes += 1;
+      state.data[indexToFind].likes += 1;
     },
     unlikeMovie: (state, action) => {
       const indextoFind = state.data.findIndex(

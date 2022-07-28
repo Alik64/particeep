@@ -70,7 +70,7 @@ const Movies = () => {
     setCurrentPage(1);
   };
   return (
-    <div className={style.root}>
+    <div className={style.root} data-testid="movies">
       <section className={style.movies_filter}>
         <MySelect
           onChange={sortMovies}

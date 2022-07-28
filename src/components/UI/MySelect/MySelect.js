@@ -11,7 +11,7 @@ export default function MySelect({ options, value, onChange }) {
   };
 
   return (
-    <div className={style.root}>
+    <div className={style.root} data-testid="mySelect">
       <label htmlFor="mySelect">Catégories</label>
       <select value={value} onChange={handleChange} id="mySelect">
         <option value="all">All</option>

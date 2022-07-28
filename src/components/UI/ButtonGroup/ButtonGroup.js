@@ -9,7 +9,7 @@ const ButtonGroup = ({ btn1, btn2, btn3, onClick }) => {
   };
 
   return (
-    <div className={style.root}>
+    <div className={style.root} data-testid="buttonGroup">
       <div className={style.container}>Elément par page</div>
       <div className={style.buttons}>
         <div onClick={(e) => handleCLick(Number(e.target.innerText))}>

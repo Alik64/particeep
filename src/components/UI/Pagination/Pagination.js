@@ -32,7 +32,10 @@ const Pagination = ({
   let lastPage = paginationRange[paginationRange.length - 1];
 
   return (
-    <div className={cn(style.root, { [className]: className })}>
+    <div
+      className={cn(style.root, { [className]: className })}
+      data-testid="pagination"
+    >
       <div
         className={cn(style.prev, {
           [style.disabled]: currentPage === 1,
