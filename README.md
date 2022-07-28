@@ -30,7 +30,7 @@ Prenez des initiatives, il y a des points bonus si
 
 ## 🎉 Résultats:
 
-Version utilisateur est deployé sur Netlify [Particeep](https://react-test-particeep.netlify.app/).
+## Version utilisateur est deployé sur Netlify [Particeep](https://react-test-particeep.netlify.app/).
 
 ### 💻 Environnement technique :
 
