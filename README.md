@@ -1,5 +1,7 @@
 # React interview Particeep
 
+## Version utilisateur est deployé sur Netlify : >>> [Particeep](https://react-test-particeep.netlify.app/) <<<
+
 ## 📑 Contexte:
 
 Test technique.
@@ -27,8 +29,6 @@ Prenez des initiatives, il y a des points bonus si
 - Il y a une attention aux détails
 
 ⚠️ La suppression du comportement asynchrone dans `movies.js` entraînera une annulation du test.
-
-## Version utilisateur est deployé sur Netlify : >>> [Particeep](https://react-test-particeep.netlify.app/) <<<
 
 ### 💻 Environnement technique :
 
