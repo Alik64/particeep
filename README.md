@@ -28,9 +28,7 @@ Prenez des initiatives, il y a des points bonus si
 
 ⚠️ La suppression du comportement asynchrone dans `movies.js` entraînera une annulation du test.
 
-## 🎉 Résultats:
-
-## Version utilisateur est deployé sur Netlify [Particeep](https://react-test-particeep.netlify.app/).
+## Version utilisateur est deployé sur Netlify : >>> [Particeep](https://react-test-particeep.netlify.app/) <<<
 
 ### 💻 Environnement technique :
 
